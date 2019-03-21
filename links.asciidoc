@@ -1,0 +1,14 @@
+=== Useful Links
+
+==== SecLists
+
+https://github.com/danielmiessler/SecLists/
+
+Lots of wordlists, lots of wordlists...
+
+TIP: TODO include brief directory structure, raft, rockyou, etc
+
+
+==== Exploit-DB
+
+TIP: TODO include `searchsploit` usage

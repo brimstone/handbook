@@ -1,0 +1,36 @@
+= Brimstone's Manual
+:author:    brimstone
+:email:     brimstone@the.narro.ws
+:homepage: https://brimstone.github.io/manual
+:toc:
+
+== Tools
+
+include::gobuster.asciidoc[]
+
+include::hydra.asciidoc[]
+
+include::nikto.asciidoc[]
+
+include::nmap.asciidoc[]
+
+.TODO list
+- patator
+- wfuzz
+- msf
+- pupy
+- empire
+
+== Languages
+
+include::php.asciidoc[]
+
+== Operating Systems
+
+include::linux.asciidoc[]
+
+include::windows.asciidoc[]
+
+== Links
+
+include::links.asciidoc[]

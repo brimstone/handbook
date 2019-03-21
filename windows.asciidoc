@@ -1,0 +1,45 @@
+=== Windows
+
+==== User Management
+
+TIP: TODO
+
+==== Scheduled Tasks
+
+TIP: TODO
+
+==== Service Management
+
+TIP: TODO
+
+==== Exploits
+===== MS08-067
+_remote_
+
+This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
+
+*Affects*: XP, 2003
+
+*Metasploit Module*: exploit/windows/smb/ms08_067_netapi
+
+===== MS16-075
+_local_, _privilege escalation_
+
+Metasploit Module: exploit/windows/local/ms16_075_reflection_juicy
+
+Detection: Run `whoami /getprivs` and look for `SeImpersonate` or `SeAssignPrimaryToken`
+
+===== MS17-010
+_remote_
+
+This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
+
+[cols="1,3"]
+|===
+|Affects |Pretty much everything. XP through Windows 10
+|Metasploit Module |exploit/windows/smb/ms17_010_psexec
+|===
+
+==== Powershell
+
+TIP: TODO

@@ -1,0 +1,22 @@
+=== gobuster
+_enumeration_, _directory busting_
+
+gobuster is a tool for finding directories on a webserver. It guesses paths from a wordlist.
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag               |Description
+|+-u http://server+ |URL of target
+|+-w wordlist.txt+  |Path to Wordlist
+|+-e+               |Show full URLs
+|+-r+               |Follow redirects
+|+-l+               |Include lenth of body
+|===
+
+==== Common Usage
+
+ gobuster -u http://192.168.1.1 -e -r -l -w raft-medium-files.txt
+
+Check every file in the raft medium list against 192.168.1.1
