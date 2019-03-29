@@ -1,0 +1,21 @@
+=== wfuzz
+_password cracking_
+
+Configurable brute forcer
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag       |Description
+|`-w words` |File containing words
+|`--hh N`   |Hide responses based on character count, `BBB` uses `FUZZ{}` as a reference
+|===
+
+==== Common Usage
+
+	wfuzz --hh BBB -w raft-medium-files.txt 'http://192.168.1.1/FUZZ{missing}'
+
+Look for files on 192.168.1.1 from raft medium, but only showing results that have a response size different than the presumed missing file, `missing`.
+
+<<<

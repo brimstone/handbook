@@ -1,0 +1,87 @@
+=== pupy
+
+NOTE: need link here
+
+pupy is a fun little C2 and implant written in python and C. It has a few oneliner clients that make it fairly versatile.
+
+==== Setting up the listeners
+
+The webserver isn't really a listener, but is used to deliver payloads to oneliners.
+
+[cols="1,1", options="header"]
+|===
+|Command                               |Description
+|`config list webserver`               |Get webserver configuration
+|`config set webserver listen ADDRESS` |Change webserver port. Must save and restart if changed.
+|`config save`                         |Save config
+|===
+
+The default config has an `ssl` listener ready to go on port 443. There's not much to configure here.
+
+[cols="1,1", options="header"]
+|===
+|Command                         |Description
+|`config set listeners ssl 8443` |Change port of ssl listener
+|===
+
+There's a udp listener available. It needs to be configured before use.
+
+[cols="1,1", options="header"]
+|===
+|Command                              |Description
+|`config set listeners udp_secure 53` |Change port of udp_secure listener
+|`listen -a udp_secure`               |Start udp_secure listener
+|===
+
+==== Generating clients
+
+pupy calls the implants clients. Clients are generated with the `gen` command
+
+  gen GENFLAG connect CONNECTFLAG
+
+[cols="1,1", options="header"]
+|===
+|`gen` Flags                           |Description
+|`-f client\|py_onliner\|ps1_oneliner` |Generate a standalone client or python or powershell oneliner.
+|`-O windows\|linux`                   |Set OS
+|`-A x86\|x64`                         |Set arch
+|===
+
+[cols="1,1", options="header"]
+|===
+|Connect Flags        | Description
+|`-t ssl\|udp_secure` |Type of connection, ssl or udp_secure
+|`--host ADDRESS`     |IP and port of listener
+|===
+
+==== Interacting
+
+[cols="1,3", options="header"]
+|===
+|Command         |Description
+|`sessions`      |List current sessions
+|`sessions -i N` |Interact with a specific one, if multiple.
+|`shell`         |Start an interactive shell on the current session.
+|`sessions -K`   |Request all sessions to exit
+|===
+
+==== File transfer
+
+[cols="1,3", options="header"]
+|===
+|Command                           |Description
+|`download remote_path local_path` |Download a file
+|`upload local_path remote_path`   |Upload a file
+|===
+
+==== Modules of note
+
+NOTE: TODO
+
+==== Common snippets
+
+  gen -f py_oneliner -O linux -A x64 connect -t ssl --host localhost:443
+
+Genrate a python oneliner
+
+<<<

@@ -1,0 +1,35 @@
+=== patator
+_password cracking_
+
+Highly configurable brute forcer.
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag                    |Description
+|`http_fuzz`             |Fuzz HTTP requests
+|`method=POST`           |Make `POST` type requests
+|`follow=0`              |Don't follow redirects
+|`accept_cookie=1`       |Accept cookies and return them in subsiquent requests
+|`--threads=32`          |Maintain 32 concurrent requests
+|`timeout=10`            |Give the server 10 seconds to respond, then retry the request
+|`--max-retries=3`       |Retry a failed request 3 times before giving up
+|`0=program\|path`        |Run this program to get list of words for `PROG0` or get words from here for `FILE0`
+|`-x ignore:code=200`    |Don't show queries that have a response code with 200
+|`before_urls="http://"` |Visit this url first, works with `before_egrep`
+|`before_egrep='_TOKEN_:<tag value="(\w+)">` |Pattern of variables to extract from the `before_urls`
+|`-x ignore:fgrep='bad'` |Don't show queries that have a response that contains this pattern
+|`-x quit:code=301`      |Quit when this HTTP code is received
+|===
+
+==== Common Usage
+
+  patator http_fuzz method=POST follow=0 accept_cookie=1 --threads=32 timeout=10 \
+  --max-retries=3 url="http://192.168.1.1/login" \
+  body="login=login&user=admin&csrf_token=_CSRF_&password=PROG0" \
+  0='mp64 -1=?l?u ?1?1?1' -x ignore:code=200 \
+  before_urls="http://10.0.1.11/ulicms/admin/index.php" \
+  before_egrep='_CSRF_:<input type="hidden" name="csrf_token" value="(\w+)">'
+
+<<<

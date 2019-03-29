@@ -1,5 +1,5 @@
 === nmap
-_enumeration_, _port scanning_
+_port scanning_
 
 nmap is the Network Mapper, a common first tool for identifying the occupants of
 a network
@@ -18,4 +18,10 @@ a network
 
   nmap -sS -vv -oA 192.168.1.0 192.168.1.0/24
 
-Scan an entire subnet and record the results to all three formats, nmap, gnmap, xml
+Scan an entire subnet and record the results to all three formats:
+
+- 192.168.1.0.nmap
+- 192.168.1.0.gnmap
+- 192.168.1.0.xml
+
+<<<

@@ -1,0 +1,66 @@
+= Brimstone's Manual
+:doctype:  book
+:email:    brimstone@the.narro.ws
+:homepage: https://brimstone.github.io/manual
+:icons:    font
+:reproducible:
+:theme:    custom
+:toc:
+
+[NOTE]
+===============================
+TODO
+
+MISC:
+
+- systeminfo quick wins?
+- XP whoami using tasklist
+- disable defender/whitelist directory
+- wmic search unquoted paths
+- rtfm page 46
+- ms-sql xpcmdshell
+- postfix `\\copy`
+===============================
+
+== Tools
+
+include::gobuster.asciidoc[]
+include::hydra.asciidoc[]
+include::john.asciidoc[]
+include::masscan.asciidoc[]
+include::nikto.asciidoc[]
+include::nmap.asciidoc[]
+include::patator.asciidoc[]
+include::sqlmap.asciidoc[]
+include::wfuzz.asciidoc[]
+
+== C2 & Implants
+
+include::empire.asciidoc[]
+include::msf.asciidoc[]
+include::pupy.asciidoc[]
+
+== Languages
+
+include::php.asciidoc[]
+
+== Operating Systems
+
+include::linux.asciidoc[]
+include::windows.asciidoc[]
+
+== Links
+
+include::links.asciidoc[]
+
+[float]
+== Notes
+
+_Add your notes here_
+
+<<<
+
+[float]
+== Notes
+
+_Add your notes here_

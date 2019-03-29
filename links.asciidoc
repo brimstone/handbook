@@ -1,14 +1,47 @@
-=== Useful Links
-
-==== SecLists
+[float]
+=== SecLists
 
 https://github.com/danielmiessler/SecLists/
 
-Lots of wordlists, lots of wordlists...
+Lots of wordlists, lots of wordlists... My favorites:
 
-TIP: TODO include brief directory structure, raft, rockyou, etc
+- Passwords/
+  ** Leaked-Databases/
+     ***  rockyou-75.txt
+- Discovery/
+  ** Web-Content/
+     *** raft-{small,medium,large}-{words,extensions,files,directories}{,-lowercase}.txt
 
+rockyou is ok for passwords.
 
-==== Exploit-DB
+raft is good for `gobuster`
 
-TIP: TODO include `searchsploit` usage
+[float]
+=== Exploit-DB
+
+https://exploit-db.com
+
+Has a companion program `searchsploit`.
+
+[float]
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag        |Description
+|`--id` |Show the exploit ID instead of the path.
+|`-m` |Mirror the exploit file to the current directory.
+|===
+
+[float]
+==== Common Usage
+
+  searchsploit vsftp
+
+Find all exploits matching the string `vsftp`. List the title and path to exploit file(s)
+
+  searchsploit -m 5814
+
+Copy the files for exploit #5814 to the current directory.
+
+<<<

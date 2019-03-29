@@ -1,5 +1,5 @@
 === hydra
-_enumeration_, _password cracking_
+_password cracking_
 
 hydra brute forces logins to various services.
 
@@ -18,3 +18,5 @@ hydra brute forces logins to various services.
   "/wp-login.php:log=^USER^&pwd=^PASS^:login_error"
 
 Check every user/pass combination from `users.txt` and `pass.txt` against the wordpress instance on `192.168.1.1` at `/wp-login.php`.
+
+<<<

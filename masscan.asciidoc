@@ -1,0 +1,23 @@
+=== masscan
+_port scanning_
+
+masscan is a very fast port scanner.
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag       |Description
+|`-p N-N`   |Ports to scan
+|`--rate N` |Packets per second to send, faster may miss open ports. Default is 500ish. 1500 is probably ok on most networks.
+|`-oG file` |Grepable output saved to `file`
+|`-oL file` |Simple list format saved to `file`
+|===
+
+==== Common Usage
+
+  masscan -p0-65535 --rate 1000 192.168.1.1
+
+Scan a target, get results to the screen.
+
+<<<

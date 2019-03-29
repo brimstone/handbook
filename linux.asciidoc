@@ -28,6 +28,44 @@ The first `bash` has to be bash, to get the tcp support used later on. The secon
 
 This also sets up the tty from earlier and "nulls out" the path to the history file, so your commands aren't saved on the target.
 
+<<<
+
+==== Package Managers
+
+|===
+|Action |apt |dpkg |yum |rpm
+|List
+|->
+|`dpkg -l`
+|???  
+|???
+
+|Search available
+|`apt-cache search P`
+|_n/a_
+|`yum search P`
+|_n/a_
+
+|Install
+|`apt install P`
+|`dpkg -i P.deb`
+|`yum install P`
+|???
+
+|Remove
+|`dpkg -P P`
+|`apt remove P`
+|???
+|???
+
+|Check for corruption
+|???
+|???
+|???
+|???
+
+
+|===
 ==== Exploits
 ===== CVE-2016-5195 DirtyC0w
 
@@ -43,3 +81,4 @@ Patched in:
 |4.7.8-1 |Debian unstable
 |===
 
+<<<

