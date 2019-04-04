@@ -15,11 +15,9 @@ MISC:
 
 - systeminfo quick wins?
 - XP whoami using tasklist
-- disable defender/whitelist directory
 - wmic search unquoted paths
 - rtfm page 46
 - ms-sql xpcmdshell
-- postfix `\\copy`
 ===============================
 
 == Tools
@@ -43,6 +41,10 @@ include::pupy.asciidoc[]
 == Languages
 
 include::php.asciidoc[]
+
+== Databases
+
+include::postgres.asciidoc[]
 
 == Operating Systems
 

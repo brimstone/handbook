@@ -2,5 +2,5 @@
 \usepackage[pdftex]{color,graphicx,epsfig}
 \usepackage[final]{pdfpages}
 \begin{document}
-\includepdf[pages=-,nup=1x2,landscape,signature=4]{manual.pdf}
+\includepdf[pages=-,nup=1x2,landscape,signature=28]{manual.pdf}
 \end{document}

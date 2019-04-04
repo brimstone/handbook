@@ -29,6 +29,8 @@ Use it with curl:
 
   curl -d 'cmd=/usr/bin/id' http://target/shell.php
 
+<<<
+
 ==== Magic Numbers
 
 Some strings will hash to strings that can be interpreted as numbers. Weird huh?

