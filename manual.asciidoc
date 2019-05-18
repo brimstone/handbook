@@ -14,7 +14,6 @@ TODO
 MISC:
 
 - systeminfo quick wins?
-- XP whoami using tasklist
 - wmic search unquoted paths
 - rtfm page 46
 - ms-sql xpcmdshell

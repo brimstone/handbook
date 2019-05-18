@@ -24,6 +24,10 @@ Add user with the username `brimstone` and password `password`.
 
 Add `brimstone` to the local administrators group.
 
+  echo %computername%\%username%
+
+Get current username on XP or when `whoami` fails.
+
 ==== Scheduled Tasks
 
   schtasks /create /tn task name /ru system /sc onlogon /tr backdoor.exe
@@ -88,6 +92,12 @@ Add excluded direectory.
   use post/windows/gather/enum_av_excluded
 
 List off excluded directories from meterpreter session.
+
+==== Find interesting things
+
+  wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows\\" |findstr /i /v """
+
+wmic search unquoted paths
 
 ==== Exploits
 ===== MS08-067

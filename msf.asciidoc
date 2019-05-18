@@ -1,4 +1,4 @@
-=== Metasploit
+=== Metasploit Framework
 
 NOTE: TODO
 

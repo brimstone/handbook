@@ -9,6 +9,7 @@ a network
 [cols="1,3", options="header"]
 |===
 |Flag         |Description
+|`-A`         |Enable OS detection, version detection, script scanning, and traceroute
 |`-vv`        |Be verbose
 |`-sS`        |Syn scan. Kinda invisible to some firewalls.
 |`-oA prefix` |Output results in *All* formats, xml, gnmap, and nmap to a file prefix
@@ -16,7 +17,7 @@ a network
 
 ==== Common Usage
 
-  nmap -sS -vv -oA 192.168.1.0 192.168.1.0/24
+  nmap -A -sS -vv -oA 192.168.1.0 192.168.1.0/24
 
 Scan an entire subnet and record the results to all three formats:
 

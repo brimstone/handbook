@@ -1,8 +1,8 @@
 === pupy
 
-NOTE: need link here
+https://github.com/n1nj4sec/pupy
 
-pupy is a fun little C2 and implant written in python and C. It has a few oneliner clients that make it fairly versatile.
+pupy is a fun little Command and Control (C2) and implant written in python and C. It has a few oneliner clients that make it fairly versatile.
 
 ==== Setting up the listeners
 

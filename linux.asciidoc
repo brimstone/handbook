@@ -37,8 +37,8 @@ This also sets up the tty from earlier and "nulls out" the path to the history f
 |List
 |->
 |`dpkg -l`
-|???  
-|???
+|`yum list installed`
+|`rpm -qa`
 
 |Search available
 |`apt-cache search P`
@@ -50,19 +50,19 @@ This also sets up the tty from earlier and "nulls out" the path to the history f
 |`apt install P`
 |`dpkg -i P.deb`
 |`yum install P`
-|???
+|`rpm -i P.rpm` or `rpm -U P.rpm`
 
 |Remove
 |`dpkg -P P`
 |`apt remove P`
-|???
-|???
+|`yum remove P`
+|`rpm -e P`
 
 |Check for corruption
-|???
-|???
-|???
-|???
+|_n/a_
+|`debsums -as`
+|_n/a_
+|`rpm -Va`
 
 
 |===

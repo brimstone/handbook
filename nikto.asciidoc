@@ -9,11 +9,12 @@ nikto performs checks for vulnerabilites against webservers.
 |===
 |Flag        |Description
 |`-h target` |IP of target
+|`-C all`    |Scan all CGI directories
 |===
 
 ==== Common Usage
 
-  nikto -h 192.168.1.1
+  nikto -C all -h 192.168.1.1
 
 Scan a target, get results to the screen.
 
