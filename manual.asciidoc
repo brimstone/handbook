@@ -17,38 +17,48 @@ MISC:
 - wmic search unquoted paths
 - rtfm page 46
 - ms-sql xpcmdshell
+- PEzor
 ===============================
+
+== Methodologies
+
+include::methods/ntlmrelay.asciidoc[]
 
 == Tools
 
-include::gobuster.asciidoc[]
-include::hydra.asciidoc[]
-include::john.asciidoc[]
-include::masscan.asciidoc[]
-include::nikto.asciidoc[]
-include::nmap.asciidoc[]
-include::patator.asciidoc[]
-include::sqlmap.asciidoc[]
-include::wfuzz.asciidoc[]
+include::tools/ffuf.asciidoc[]
+include::tools/gobuster.asciidoc[]
+include::tools/hashcat.asciidoc[]
+include::tools/hydra.asciidoc[]
+include::tools/john.asciidoc[]
+include::tools/masscan.asciidoc[]
+include::tools/nikto.asciidoc[]
+include::tools/nmap.asciidoc[]
+include::tools/patator.asciidoc[]
+include::tools/responder.asciidoc[]
+include::tools/sqlmap.asciidoc[]
+include::tools/wfuzz.asciidoc[]
 
 == C2 & Implants
 
-include::empire.asciidoc[]
-include::msf.asciidoc[]
-include::pupy.asciidoc[]
+include::c2/cobaltstrike.asciidoc[]
+include::c2/empire.asciidoc[]
+include::c2/msf.asciidoc[]
+include::c2/pupy.asciidoc[]
 
 == Languages
 
-include::php.asciidoc[]
+include::lang/php.asciidoc[]
+include::lang/powershell.asciidoc[]
 
 == Databases
 
-include::postgres.asciidoc[]
+include::db/postgres.asciidoc[]
 
 == Operating Systems
 
-include::linux.asciidoc[]
-include::windows.asciidoc[]
+include::os/linux.asciidoc[]
+include::os/windows.asciidoc[]
 
 == Links
 

@@ -1,5 +1,5 @@
 === gobuster
-_directory busting_
+_force browsing_
 
 gobuster is a tool for finding directories on a webserver. It guesses paths from a wordlist.
 

@@ -1,0 +1,35 @@
+=== Cobalt Strike
+
+==== Beacon commands
+
+[cols="1,3", options="header"]
+|===
+|Command             |Description
+|`jobs`              |List the running jobs of beacon.
+|`run`               |Execute OS commands using Win32 API calls.
+|`shell`             |Execute OS commands by spawning `cmd.exe /c`.
+|`powershell`        |Execute commands by spawning `powershell.exe`
+|`powershell-import` |Import a local powershell module in the current beacon process.
+|`powerpick`         |Execute powershell commands without spawning `powershell.exe`, using only .net libraries and assemblies. (Bypasses AMSI and CLM)
+|`execute-assembly`  |Loads and executes a .NET compiled assembly executable completely on memory.
+|===
+
+
+==== Beacon Injection Commands
+
+[cols="1,3", options="header"]
+|===
+|Command    |Description
+|`psinject` |Inject on a specified process and execute a command using powerpick's functionality. Powershell modules imported with `powershell-import` are available.
+|`runu`     |Run a command under a spoofed process PID.
+|`shinject` |Inject shellcode into another a running process.
+|`shspawn`  |Create a new process and inject shellcode into it.
+|===
+
+
+==== References
+
+- https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet
+- https://github.com/threadexpress/malleable-c2
+
+<<<

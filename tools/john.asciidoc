@@ -1,0 +1,27 @@
+=== john
+_password cracking (offline)_
+
+john is a CPU based password and hash cracker.
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag              |Description
+|`--wordlist=file` |Path to wordlist for dictionary attack
+|`--format=hash`   |Format of hash file
+|'--mask=mask'     |Mask for mask attack
+|`--fork=NCORES'   |Use more of the cpu
+|===
+
+==== Common Usage
+
+  john --wordlist=rockyou-75.txt --format=Raw-MD5 hashes
+
+Attempts to MD5 everything in rockyou-75 and checks it against `hashes`.
+
+  john --mask='?u?s?l?l?l?d?l?l?d' --format=NT --fork=8 /tmp/hashes
+
+Search for the NTLM password `P@ssw0rd1` in `/tmp/hashes` using a mask attack and all 8 cores.
+
+<<<

@@ -1,0 +1,27 @@
+=== ffuf
+_force browsing, HTTP request fuzzing_
+
+Configurable brute forcer for HTTP requests
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag              |Description
+|`-u`              |Target URL
+|`-w file:[PARAM]` |File to use for the dictionary for `PARAM`, defaults to `FUZZ`
+|`-ac`             |Auto Calibrate removing the need for Matcher and Filter options
+|`-d`              |POST data
+|`-b`              |Cookie data
+|`-X`              |HTTP Method
+|`-replay-proxy`   |Send matching requests through something like Burp
+|`-mode`           |Mode, `clusterbomb` by default, or `pitchfork` to align lines in wordlists
+|===
+
+==== Common Usage
+
+  ffuf -w wordlist.txt -u https://example.org/FUZZ -mc all -fs 42 -c -v
+
+Fuzz file paths from wordlist.txt, match all responses but filter out those with content-size 42. Colored, verbose output.
+
+<<<

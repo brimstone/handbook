@@ -2,29 +2,29 @@
 
 https://github.com/EmpireProject/Empire
 
-## Setup a listener
+==== Setup a listener
 
 - `listeners` Switch to listeners menu
 - `uselistener http`
 - `set Name test`
 - `set Port 8000`
-- `set URL http://127.0.0.1:8000`
+- `set Host http://127.0.0.1:8000`
 - `execute`
 
-## Generate a stager
+==== Generate a stager
 - `usestager multi/bash`
 - `set Listener test`
 - `generate`
 
 
-## After you botch the listener
+==== After you botch the listener
 
 - `listeners`
-- `edit test URL http://172.100.100.100:8000`
+- `edit test Host http://172.100.100.100:8000`
 - `disable test`
 - `enable test`
 
-## Using an agent
+==== Using an agent
 
 - `agents`
 - `interact Q2CT0UO9`

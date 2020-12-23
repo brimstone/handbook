@@ -1,4 +1,4 @@
-=== php
+=== PHP
 
 ==== Local File Inclusion
 
@@ -37,8 +37,11 @@ Some strings will hash to strings that can be interpreted as numbers. Weird huh?
 
 Try the following inputs in password fields:
 
+[cols="1,1,2", options="header"]
 |===
-|digest |input |output
-|md5 |240610708 |0e462097431906509019562988736854
-|sha1 |10932435112 |0e07766915004133176347055865026311692244
+|Digest |Input       |Output
+|MD5    |240610708   |0e462097431906509019562988736854
+|SHA1   |10932435112 |0e07766915004133176347055865026311692244
 |===
+
+<<<

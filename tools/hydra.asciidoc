@@ -1,5 +1,5 @@
 === hydra
-_password cracking_
+_password cracking (online)_
 
 hydra brute forces logins to various services.
 

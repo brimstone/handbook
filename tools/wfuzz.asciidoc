@@ -1,5 +1,5 @@
 === wfuzz
-_password cracking_
+_password cracking (online), force browsing_
 
 Configurable brute forcer
 

