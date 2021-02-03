@@ -7,12 +7,28 @@ hashcat is a GPU based password and hash cracker.
 
 [cols="1,3", options="header"]
 |===
-|Flag |Description
-|`-m` |Hash type
-|`-a` |Attack type
-|`-d` |Device to use
-|`-o` |Output file for found plaintexts
-|`-1` |Format for first custom charset, use later with `?1`
+|Flag                |Description
+|`-m`                |Hash type
+|`-a`                |Attack type
+|`-d`                |Device to use
+|`-o`                |Output file for found plaintexts
+|`-1`                |Format for first custom charset, use later with `?1`
+|`--status`          |Show status every 10 seconds or so
+|`--potfile-disable` |Don't save cracked hashes with plaintext in `$HOME/.hashcat`
+|===
+
+==== Common Hash Types
+
+
+[cols="1,3", options="header"]
+|===
+|Name               |Number
+|Kerberoasted NTLM  |13100
+|MD5                |0
+|Net-NTLMv2         |5600
+|NTLM               |1000
+|SHA1               |100
+|Unix shadow, `$6$` |9600
 |===
 
 ==== Common Usage
@@ -28,5 +44,8 @@ Mask (brute force) attack against 7 character NTLM passwords in `hashes`, saving
  hashcat -m 9600 -a 3 -d 2 --username office2john_output.txt -1 '?l?u?d' '?1?1?1?1`
 
 Mask attack with 4 characters of lowercase, uppercase, and digits against the result of `office2john.py` on a Office 2013 file.
+
+==== References
+- Rules Syntax: https://hashcat.net/wiki/doku.php?id=rule_based_attack
 
 <<<
