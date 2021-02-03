@@ -25,4 +25,8 @@ Scan an entire subnet and record the results to all three formats:
 - 192.168.1.0.gnmap
 - 192.168.1.0.xml
 
+  nmap -sT --top-ports 1000 -v -oG -
+
+Export the top 1000 common ports for consumption by another program.
+
 <<<
