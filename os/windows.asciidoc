@@ -158,7 +158,7 @@ This is a vulnerability in SMB that invites `NT_AUTHORITY/SYSTEM` access.
 - `31D6CFE0D16AE931B73C59D7E0C089C0` is the empty NT hash, don't try to crack it either
 
 ===== Local acquisition
-- implant's `hashdump`
+- impacket's `hashdump`
 
 ===== Remote Acquisition
 - impacket's `secretsdump.py`
