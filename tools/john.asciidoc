@@ -24,4 +24,8 @@ Attempts to MD5 everything in rockyou-75 and checks it against `hashes`.
 
 Search for the NTLM password `P@ssw0rd1` in `/tmp/hashes` using a mask attack and all 8 cores.
 
+  john --wordlist=words.txt --rules=hashcat hashes.txt
+
+Use some of the hashcat rules in john with a wordlist of `words.txt` and hashes in `hashes.txt`.
+
 <<<
