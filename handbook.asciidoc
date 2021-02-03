@@ -48,6 +48,7 @@ include::c2/pupy.asciidoc[]
 
 == Languages
 
+include::lang/perl.asciidoc[]
 include::lang/php.asciidoc[]
 include::lang/powershell.asciidoc[]
 

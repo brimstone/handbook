@@ -1,0 +1,7 @@
+=== Perl
+
+==== Snipplets
+
+ perl -e 'for($i=0;$i<255^4;$i++){print join(".",unpack "CCCC",pack "N",$i)."\n"}'
+
+Generate all possible IPv4 IPs to stdout.
