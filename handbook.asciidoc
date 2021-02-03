@@ -1,7 +1,7 @@
-= Brimstone's Manual
+= Brimstone's Handbook
 :doctype:  book
 :email:    brimstone@the.narro.ws
-:homepage: https://brimstone.github.io/manual
+:homepage: https://brimstone.github.io/handbook
 :icons:    font
 :reproducible:
 :theme:    custom

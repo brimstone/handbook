@@ -1,9 +1,9 @@
-manual.pdf: *.asciidoc */*asciidoc Makefile custom-theme.yml
+handbook.pdf: *.asciidoc */*asciidoc Makefile custom-theme.yml
 	docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} brimstone/asciidoctor-pdf \
-	asciidoctor-pdf -a pdf-style=custom-theme.yml -o manual.pdf -a revnumber=$(shell git describe --tags --always --dirty) -a revdate=$(shell date -I) --trace manual.asciidoc
+	asciidoctor-pdf -a pdf-style=custom-theme.yml -o handbook.pdf -a revnumber=$(shell git describe --tags --always --dirty) -a revdate=$(shell date -I) --trace handbook.asciidoc
 	@echo "Done"
 
-booklet.pdf: Makefile manual.pdf booklet.latex
+booklet.pdf: Makefile handbook.pdf booklet.latex
 	docker run --rm -it -v ${PWD}:${PWD} -w ${PWD} brimstone/asciidoctor-pdf pdflatex booklet.latex
 	rm -f booklet.log booklet.aux
 
