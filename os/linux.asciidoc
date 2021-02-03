@@ -2,7 +2,7 @@
 
 ==== Find interesting things
 
-   find / -perm /6000 -type f 2>/dev/null
+   find / -perm /6000 -type f -ls 2>/dev/null
 
 SUID binaries
 
