@@ -35,6 +35,14 @@
 
 ==== User Management
 
+  net user /domain
+
+Get a list of all users on the domain
+
+  net user USERNAME /domain
+
+Get a list of groups on the domain to which that user belongs.
+
   net user brimstone password /add
 
 Add user with the username `brimstone` and password `password`.
@@ -61,7 +69,15 @@ Run task on system start.
 
 Run task on user idle for 30 minutes.
 
-<<<
+==== Remote Access
+
+  reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+
+Enable Remote Desktop
+
+  reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 1 /f
+
+Disable Remote Desktop
 
 ==== Service Management
 
