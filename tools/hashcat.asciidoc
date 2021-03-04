@@ -15,18 +15,25 @@ hashcat is a GPU based password and hash cracker.
 |`-1`                |Format for first custom charset, use later with `?1`
 |`--status`          |Show status every 10 seconds or so
 |`--potfile-disable` |Don't save cracked hashes with plaintext in `$HOME/.hashcat`
+|`--potfile-path`    |Location of pot file, good for keeping projects separate
+|`--debug-mode`      |Save wordlist word and which rule worked
+|`--debug-file`      |Location of debug file
+|`--session`         |Name a session to resume it later
+|`--resume`          |Resume a session
+|
 |===
 
 ==== Common Hash Types
 
-
 [cols="1,3", options="header"]
 |===
 |Name               |Number
+|DCC2               |2100
 |Kerberoasted NTLM  |13100
+|LanMan             |3000
 |MD5                |0
-|Net-NTLMv2         |5600
 |NTLM               |1000
+|Net-NTLMv2         |5600
 |SHA1               |100
 |Unix shadow, `$6$` |9600
 |===
@@ -45,7 +52,31 @@ Mask (brute force) attack against 7 character NTLM passwords in `hashes`, saving
 
 Mask attack with 4 characters of lowercase, uppercase, and digits against the result of `office2john.py` on a Office 2013 file.
 
+ hashcat -m 3000 -a 3 -1 '?u?s?d' -i --increment-min 1 hashes '?1?1?1?1?1?1?1'
+
+Mask attack against all possible LM passwords.
+
+==== Attack Types
+
+[cols="1,3", options="header"]
+|===
+|Number|Type
+|0     |
+|3     |Mask attack
+|===
+
+==== Rule Syntax
+Rules Syntax: https://hashcat.net/wiki/doku.php?id=rule_based_attack
+
+[cols="1,3", options="header"]
+|===
+|Rule|Type
+|:   |Do nothing
+|$c  |Append a c to the end of the word
+|^c  |Prefix a c to the beginning of the word
+|===
+
 ==== References
-- Rules Syntax: https://hashcat.net/wiki/doku.php?id=rule_based_attack
+- Tweet: https://twitter.com/yiannistox/status/1359206270851514377
 
 <<<
