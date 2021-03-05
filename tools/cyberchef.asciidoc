@@ -1,0 +1,12 @@
+=== CyberChef
+_encryption_
+
+A bunch of text mangling tools all in one webpage. It's also available as downloadable copy to use offline.
+
+==== Common Usage
+
+link:https://gchq.github.io/CyberChef/#recipe=Encode_text('UTF-16LE%20(1200)')MD4()[Encode_text('UTF-16LE (1200)'), MD4()]
+
+Encode a string to an NTLM hash
+
+<<<

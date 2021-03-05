@@ -26,6 +26,7 @@ include::methods/ntlmrelay.asciidoc[]
 == Tools
 
 include::tools/ffuf.asciidoc[]
+include::tools/cyberchef.asciidoc[]
 include::tools/gobuster.asciidoc[]
 include::tools/hashcat.asciidoc[]
 include::tools/hydra.asciidoc[]
