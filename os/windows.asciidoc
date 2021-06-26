@@ -122,7 +122,7 @@ Disable completely. Yields a ballon notification to logged on users.
 
   Add-MpPreference -ExclusionPath "C:\Temp"
 
-Add excluded direectory.
+Add excluded directory.
 
   use post/windows/gather/enum_av_excluded
 
